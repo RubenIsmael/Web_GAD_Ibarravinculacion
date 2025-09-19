@@ -1,0 +1,362 @@
+/* Requerimientos.css */
+
+/* Contenedor principal */
+.req-container {
+  padding: 1.5rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Encabezado */
+.req-header {
+  margin-bottom: 1.5rem;
+}
+
+.req-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.req-title-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #dc2626;
+  margin-right: 0.75rem;
+}
+
+.req-subtitle {
+  color: #4b5563;
+}
+
+/* Filtros y búsqueda */
+.req-filters-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.req-filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .req-filters-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.req-search-container {
+  position: relative;
+  flex: 1;
+}
+
+.req-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #9ca3af;
+}
+
+.req-search-input {
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.req-search-input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.req-filters-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.req-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.req-filter-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.req-filter-select {
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+}
+
+.req-filter-select:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.req-new-button {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.req-new-button:hover {
+  background-color: #b91c1c;
+}
+
+.req-new-button-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Lista de requerimientos */
+.req-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.req-item {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.req-item:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.req-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .req-item-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.req-item-main {
+  flex: 1;
+}
+
+.req-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.req-item-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.req-item-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.req-status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.req-status-approved {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.req-status-rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.req-item-description {
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+}
+
+.req-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.req-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .req-item-actions {
+    margin-top: 0;
+  }
+}
+
+.req-action-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.req-action-view {
+  color: #2563eb;
+}
+
+.req-action-view:hover {
+  background-color: #dbeafe;
+}
+
+.req-action-edit {
+  color: #059669;
+}
+
+.req-action-edit:hover {
+  background-color: #d1fae5;
+}
+
+.req-action-delete {
+  color: #dc2626;
+}
+
+.req-action-delete:hover {
+  background-color: #fee2e2;
+}
+
+.req-action-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Modal */
+.req-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.req-modal {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+  margin: 0 1rem;
+}
+
+.req-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.req-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.req-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.req-form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.req-form-input,
+.req-form-textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+}
+
+.req-form-input:focus,
+.req-form-textarea:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.req-form-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.req-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.req-modal-cancel {
+  color: #4b5563;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.req-modal-cancel:hover {
+  color: #1f2937;
+}
+
+.req-modal-submit {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.req-modal-submit:hover {
+  background-color: #b91c1c;
+}

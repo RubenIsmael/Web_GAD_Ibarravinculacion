@@ -1,0 +1,516 @@
+/* styles/ferias.css */
+
+.ferias-container {
+    padding: 1.5rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ferias-header {
+    margin-bottom: 1.5rem;
+}
+
+.ferias-title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.ferias-subtitle {
+    color: #4b5563;
+}
+
+/* Estadísticas */
+.ferias-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .ferias-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.ferias-stat-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+}
+
+.ferias-stat-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ferias-stat-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #4b5563;
+}
+
+.ferias-stat-text-lg {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.ferias-stat-icon-container {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ferias-stat-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Filtros y búsqueda */
+.ferias-filters {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ferias-filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .ferias-filters-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.ferias-search-container {
+    flex: 1;
+    position: relative;
+}
+
+.ferias-search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #9ca3af;
+}
+
+.ferias-search-input {
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.ferias-search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ef4444;
+    border-color: transparent;
+}
+
+.ferias-filters-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ferias-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ferias-filter-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #6b7280;
+}
+
+.ferias-filter-select {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.ferias-filter-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ef4444;
+    border-color: transparent;
+}
+
+.ferias-add-button {
+    background-color: #dc2626;
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ferias-add-button:hover {
+    background-color: #b91c1c;
+}
+
+/* Lista de ferias */
+.ferias-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .ferias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.ferias-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ferias-card:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.ferias-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ferias-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ferias-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #dc2626;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ferias-card-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+}
+
+.ferias-card-name {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.ferias-card-organizer {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #6b7280;
+}
+
+.ferias-card-status-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ferias-card-badge {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+}
+
+.ferias-card-description {
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.ferias-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.ferias-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ferias-detail-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #6b7280;
+}
+
+.ferias-detail-label {
+    color: #6b7280;
+}
+
+.ferias-detail-value {
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.ferias-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.ferias-action-button {
+    flex: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ferias-view-button {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.ferias-view-button:hover {
+    background-color: #dbeafe;
+}
+
+.ferias-edit-button {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.ferias-edit-button:hover {
+    background-color: #d1fae5;
+}
+
+.ferias-delete-button {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.ferias-delete-button:hover {
+    background-color: #fee2e2;
+}
+
+.ferias-status-button {
+    background-color: #f0f9ff;
+    color: #0369a1;
+}
+
+.ferias-status-button:hover {
+    background-color: #e0f2fe;
+}
+
+/* Modal */
+.ferias-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.ferias-modal {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 28rem;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.ferias-modal-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+.ferias-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ferias-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.ferias-form-label {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.ferias-form-input {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.ferias-form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ef4444;
+    border-color: transparent;
+}
+
+.ferias-form-textarea {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    resize: vertical;
+    min-height: 6rem;
+}
+
+.ferias-form-textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ef4444;
+    border-color: transparent;
+}
+
+.ferias-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.ferias-cancel-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: #4b5563;
+    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ferias-cancel-button:hover {
+    color: #1f2937;
+}
+
+.ferias-submit-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #dc2626;
+    color: white;
+    border-radius: 0.5rem;
+    transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ferias-submit-button:hover {
+    background-color: #b91c1c;
+}
+
+/* Clases de estado */
+.ferias-status-programada {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.ferias-status-activa {
+    background-color: #a7f3d0;
+    color: #065f46;
+}
+
+.ferias-status-finalizada {
+    background-color: #e5e7eb;
+    color: #4b5563;
+}
+
+.ferias-status-cancelada {
+    background-color: #fee2e2;
+    color: #92400e;
+}
+
+/* Clases de categoría */
+.ferias-categoria-comercial {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.ferias-categoria-artesanal {
+    background-color: #ecfccb;
+    color: #3f6212;
+}
+
+.ferias-categoria-cultural {
+    background-color: #fce7f3;
+    color: #9d174d;
+}
+
+.ferias-categoria-gastronomica {
+    background-color: #ede9fe;
+    color: #5b21b6;
+}

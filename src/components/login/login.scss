@@ -1,0 +1,743 @@
+// components/login/login.scss - DISEÑO MEJORADO CON LETRAS CLARAS
+
+// Paleta de colores profesional - Municipio de Ibarra
+$ibarra-red-primary: #DC2626;      // Rojo vibrante y visible
+$ibarra-red-secondary: #B91C1C;    // Rojo más oscuro
+$ibarra-red-light: #F87171;        // Rojo claro para acentos
+$ibarra-red-gradient: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #991B1B 100%);
+
+// Colores complementarios
+$ibarra-gold: #F59E0B;             // Dorado vibrante
+$ibarra-gold-light: #FEF3C7;       // Dorado muy claro
+$ibarra-navy: #1F2937;             // Azul marino oscuro
+$ibarra-cream: #FFFFFF;            // Blanco puro
+
+// Texto blanco para contraste con panel negro transparente
+$text-primary: #FFFFFF;            // Texto principal blanco puro
+$text-secondary: #F3F4F6;          // Texto secundario blanco grisáceo
+$text-muted: #D1D5DB;              // Texto desactivado blanco suave
+
+// Colores de estado
+$status-connected: #059669;
+$status-disconnected: #DC2626;
+$status-checking: #D97706;
+
+// Sombras profesionales
+$shadow-elegant: 0 25px 50px rgba(220, 38, 38, 0.25);
+$shadow-card: 0 15px 35px rgba(0, 0, 0, 0.1);
+$shadow-button: 0 10px 30px rgba(220, 38, 38, 0.4);
+
+// Mixins mejorados
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition-smooth($duration: 300ms) {
+  transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@mixin backdrop-blur-elegant {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+@mixin glass-effect {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+// Animaciones sofisticadas
+@keyframes float-elegant {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(1deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(220, 38, 38, 0.7);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spin-elegant {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake-elegant {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+// Estilos principales - Fondo degradado rojo elegante
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    #DC2626 0%,     // Rojo vibrante
+    #B91C1C 25%,   // Rojo medio
+    #991B1B 50%,   // Rojo oscuro
+    #7F1D1D 75%,   // Rojo muy oscuro
+    #450A0A 100%); // Rojo profundo
+  position: relative;
+  overflow: hidden;
+  @include flex-center;
+  padding: 1.5rem;
+
+  // Patrón de fondo elegante más visible
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(220, 38, 38, 0.3) 0%, transparent 40%);
+  }
+
+  // Elementos decorativos mejorados y más visibles
+  .bg-decorations {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    .decoration {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: float-elegant 8s ease-in-out infinite;
+
+      &.decoration-1 {
+        top: 15%;
+        left: 15%;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.1));
+        animation-delay: 0s;
+      }
+
+      &.decoration-2 {
+        bottom: 15%;
+        right: 15%;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(248, 113, 113, 0.3), rgba(248, 113, 113, 0.1));
+        animation-delay: 2s;
+      }
+
+      &.decoration-3 {
+        top: 60%;
+        left: 25%;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+        animation-delay: 4s;
+      }
+
+      &.decoration-4 {
+        top: 25%;
+        right: 30%;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(185, 28, 28, 0.4), rgba(185, 28, 28, 0.1));
+        animation-delay: 1s;
+      }
+    }
+  }
+}
+
+.login-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  @include glass-effect;
+  border-radius: 24px;
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.4),
+    0 16px 32px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  padding: 3rem 2.5rem;
+  overflow: hidden;
+  @include transition-smooth;
+  transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 48px 80px rgba(0, 0, 0, 0.5),
+      0 24px 48px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  // Borde superior con gradiente elegante
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: $ibarra-red-gradient;
+    border-radius: 24px 24px 0 0;
+  }
+
+  // Efecto de brillo sutil elegante
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(220, 38, 38, 0.1) 100%
+    );
+    border-radius: 24px;
+    pointer-events: none;
+  }
+}
+
+.server-status {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  @include flex-center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  @include backdrop-blur-elegant;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  .status-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+
+    &.spinning {
+      animation: spin-elegant 1s linear infinite;
+      border: 2px solid transparent;
+      border-top: 2px solid $status-checking;
+      border-radius: 50%;
+    }
+
+    &.connected { 
+      color: $status-connected;
+      filter: drop-shadow(0 0 4px rgba(5, 150, 105, 0.5));
+    }
+    &.disconnected { 
+      color: $status-disconnected;
+      filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5));
+    }
+    &.checking { color: $status-checking; }
+  }
+
+  .status-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    &.connected { color: $status-connected; }
+    &.disconnected { color: $status-disconnected; }
+    &.checking { color: $status-checking; }
+  }
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 10;
+
+  .logo-container {
+    margin: 0 auto 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    background: $ibarra-red-gradient;
+    border-radius: 50%;
+    @include flex-center;
+    box-shadow: $shadow-card;
+    position: relative;
+    @include transition-smooth;
+    animation: pulse-glow 3s ease-in-out infinite;
+
+    &:hover {
+      transform: scale(1.05);
+      animation-play-state: paused;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      background: $ibarra-red-gradient;
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.3;
+      filter: blur(8px);
+    }
+
+/* Contenedor del logo circular */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor circular para la imagen */
+.home-logo-circle {
+  width: 9rem;
+  height: 7rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b6b 100%);
+  /* Alternativa más sutil: background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ff6b6b 100%); */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  aspect-ratio: 1/1; /* Fuerza que sea perfectamente circular */
+}
+
+/* La imagen dentro del círculo */
+.home-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+  max-width: 6rem; /* Tamaño máximo del logo */
+  max-height: 6rem;
+  z-index: 2;
+  position: relative;
+}
+
+/* Variante alternativa - Si quieres fondo completamente blanco */
+.home-logo-circle.white-bg {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+}
+
+/* Variante alternativa - Si quieres un degradado más suave */
+.home-logo-circle.soft-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #fee2e2 50%, #fecaca 100%);
+}
+  }
+
+  .main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $text-primary;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.025em;
+  }
+
+  .subtitle {
+    color: $text-primary;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .description {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.connection-status {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(248, 246, 240, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  .status-row {
+    @include flex-center;
+    justify-content: space-between;
+
+    .status-info {
+      @include flex-center;
+      gap: 0.75rem;
+
+      .status-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+
+        &.spinning {
+          animation: spin-elegant 1s linear infinite;
+          border: 2px solid transparent;
+          border-top: 2px solid $status-checking;
+          border-radius: 50%;
+        }
+
+        &.connected { color: $status-connected; }
+        &.disconnected { color: $status-disconnected; }
+        &.checking { color: $status-checking; }
+      }
+
+      .status-label {
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+        &.connected { color: $status-connected; }
+        &.disconnected { color: $status-disconnected; }
+        &.checking { color: $status-checking; }
+      }
+    }
+
+    .retry-button {
+      font-size: 0.875rem;
+      color: $text-primary;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 8px;
+      @include transition-smooth;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        background: rgba(248, 113, 113, 0.3);
+        color: $ibarra-red-light;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.quotes-section {
+  margin-bottom: 2rem;
+  height: 4rem;
+  @include flex-center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15), 
+      rgba(220, 38, 38, 0.1), 
+      rgba(255, 255, 255, 0.15));
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .quote-text {
+    font-size: 0.9rem;
+    color: $text-primary;
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.5;
+    position: relative;
+    z-index: 10;
+    padding: 0 1.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    animation: float-elegant 4s ease-in-out infinite;
+  }
+}
+
+.error-message {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+  border: 1px solid #FECACA;
+  color: #991B1B;
+  font-size: 0.875rem;
+  border-radius: 12px;
+  position: relative;
+  z-index: 10;
+  animation: shake-elegant 0.5s ease-in-out;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+
+  .error-content {
+    @include flex-center;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    .error-icon {
+      color: #DC2626;
+      font-size: 1.25rem;
+      margin-top: 0.125rem;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .error-text {
+      flex: 1;
+      font-weight: 500;
+    }
+  }
+}
+
+.login-form {
+  position: relative;
+  z-index: 10;
+
+  .form-fields {
+    margin-bottom: 2rem;
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      .form-label {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        outline: none;
+        @include transition-smooth;
+        background: rgba(255, 255, 255, 0.1);
+        @include backdrop-blur-elegant;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-primary;
+        box-shadow: 
+          inset 0 2px 4px rgba(0, 0, 0, 0.3),
+          0 4px 15px rgba(0, 0, 0, 0.2);
+
+        &::placeholder {
+          color: $text-muted;
+          font-weight: 400;
+        }
+
+        &:hover {
+          border-color: rgba(248, 113, 113, 0.4);
+          box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.3),
+            0 4px 20px rgba(220, 38, 38, 0.2);
+        }
+
+        &:focus {
+          border-color: $ibarra-red-light;
+          box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 0 4px rgba(248, 113, 113, 0.3),
+            0 4px 20px rgba(220, 38, 38, 0.3);
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        &.password-input {
+          padding-right: 3.5rem;
+        }
+      }
+
+      &.password-group {
+        position: relative;
+
+        .password-toggle {
+          position: absolute;
+          right: 1rem;
+          top: 2.75rem;
+          color: $text-muted;
+          @include transition-smooth;
+          padding: 0.25rem;
+          border-radius: 6px;
+
+          &:hover {
+            color: $ibarra-red-light;
+            background: rgba(248, 113, 113, 0.2);
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+
+  .submit-button {
+    width: 100%;
+    background: $ibarra-red-gradient;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    @include transition-smooth;
+    @include flex-center;
+    gap: 0.75rem;
+    box-shadow: $shadow-button;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    // Efecto de brillo en hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      @include transition-smooth(600ms);
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(196, 30, 58, 0.4);
+      
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: $shadow-card;
+    }
+
+    .loading-spinner {
+      animation: spin-elegant 1s linear infinite;
+      border: 2px solid transparent;
+      border-top: 2px solid white;
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+.footer-section {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+
+  .copyright {
+    font-size: 0.875rem;
+    color: $text-primary;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .version {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Responsive design mejorado
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-card {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .header-section {
+    .main-title {
+      font-size: 1.75rem;
+    }
+
+    .logo-container {
+      width: 5rem;
+      height: 5rem;
+      
+      .logo-image {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .quotes-section {
+    height: 5rem;
+    
+    .quote-text {
+      font-size: 0.8rem;
+      padding: 0 1rem;
+    }
+  }
+}
+
+// Modo oscuro opcional
+@media (prefers-color-scheme: dark) {
+  .login-card {
+    background: rgba(15, 20, 25, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .form-input {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    
+    &::placeholder {
+      color: #9CA3AF;
+    }
+  }
+
+  .connection-status {
+    background: rgba(30, 58, 95, 0.3);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+}

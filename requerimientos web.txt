@@ -1,0 +1,5 @@
+* requerimientos---- solicitudes
+* dentro de olicitud de nyuevi emprendedor----o ---- solicitud d enuevo negocio
+* cada emprendedor puede tener un negocio o varios emprendimientos
+* remitri al usuario el mensaje en caso de que no este buien los datros ingresados
+* recuperacioon de clave por correo o preguntas (eso se tiene q definir)
